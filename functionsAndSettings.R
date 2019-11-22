@@ -1,6 +1,5 @@
 getSettings <- function(keyboardName) {
-    defaultMapPath <- file.path('keyboards', keyboardName, 'keymaps', 
-                                'default', 'keymap.c')
+    defaultMapPath <- file.path('keyboards', keyboardName, 'keymap.c')
     defaultMap <- read_file(defaultMapPath)
     defaultMap <- str_split(defaultMap, '_QWERTY]')[[1]][2]
     defaultMap <- str_split(defaultMap, '\n\\)')[[1]][1]
@@ -42,11 +41,11 @@ getKeymap <- function(keymap_json) {
     for (i in 1:length(layers)) {
         layer <- formatLayer(layers[[i]])
         name <- str_c('_LAYER', i)
-        layer_maps[[i]] <- getLayerMap(layer, name, settings)   
+        layer_maps[[i]] <- getLayerMap(layer, name, settings)
     }
     mergedLayers <- dropLastChar(str_c(layer_maps, collapse = '\n\n'))
     result <- str_c(
-        'const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {\n\n', 
+        'const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {\n\n',
         mergedLayers, '\n\n};', collapse = '')
     return(result)
 }

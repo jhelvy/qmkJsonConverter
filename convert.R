@@ -3,10 +3,10 @@ library(stringr)
 library(readr)
 source(file.path('functionsAndSettings.R'))
 
-keyboardName <- 'lily58'
-jsonFileName <- 'lily1_karabiner'
-# keyboardName <- 'keebio/iris'
-# jsonFileName <- 'iris2_karabiner'
+# keyboardName <- 'lily58'
+# jsonFileName <- 'lily1_karabiner'
+keyboardName <- 'keebio/iris'
+jsonFileName <- 'iris2_karabiner'
 
 # Get converted keymap 
 settings <- getSettings(keyboardName)
