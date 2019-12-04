@@ -1,6 +1,6 @@
 getSettings <- function(keyboardName) {
-    defaultMapPath <- file.path('keyboards', keyboardName, 'keymap.c')
-    defaultMap <- read_file(defaultMapPath)
+    defaultPath <- here::here('keyboards', keyboardName, 'default', 'keymap.c')
+    defaultMap <- read_file(defaultPath)
     defaultMap <- str_split(defaultMap, '_QWERTY]')[[1]][2]
     defaultMap <- str_split(defaultMap, '\n\\)')[[1]][1]
     keys <- str_split(defaultMap, ',')[[1]]
