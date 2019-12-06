@@ -39,15 +39,19 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 void encoder_update_user(uint8_t index, bool clockwise) {
     if (IS_LAYER_ON(_LOWER)) {
         if (clockwise) {
-            tap_code(KC_WH_D);
+            tap_code(KC_PGDN);
         } else {
-            tap_code(KC_WH_U);
+            tap_code(KC_PGUP);
         }
     } else if (IS_LAYER_ON(_RAISE)) {
         if (clockwise) {
+            register_code(KC_LGUI);
             tap_code(KC_EQL);
+            unregister_code(KC_LGUI);
         } else {
+            register_code(KC_LGUI);
             tap_code(KC_MINS);
+            unregister_code(KC_LGUI);
         }
     } else {
         if (clockwise) {
