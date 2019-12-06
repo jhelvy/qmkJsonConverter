@@ -28,9 +28,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                                        KC_LALT,KC_LGUI,  KC_TRNS,                    KC_SPC,KC_RGUI,       KC_NO),
 
 [_RAISE] = LAYOUT( \
-                 KC_VOLU,LGUI(LALT(KC_1)),LGUI(LALT(KC_2)),   KC_F3,   KC_F4,   KC_F5,                              KC_F6,   KC_F7,   KC_F8,   KC_F9,  KC_F10,     KC_F14, \
-       KC_VOLD, KC_NO,   KC_NO,   KC_NO,SGUI(KC_R),   KC_F2,                         SGUI(KC_K),SGUI(KC_LEFT),LSFT(KC_UP),SGUI(KC_RGHT),  KC_F11,     KC_F15, \
-        KC_MUTE,KC_TRNS,   KC_NO, KC_LBRC, KC_RBRC,  KC_TAB,                             KC_F18,LSFT(KC_LEFT),LSFT(KC_DOWN),LSFT(KC_RGHT),     KC_F12,  KC_F16, \
+        LGUI(LCTL(KC_A)),LGUI(LALT(KC_1)),LGUI(LALT(KC_2)),   KC_F3,   KC_F4,   KC_F5,                              KC_F6,   KC_F7,   KC_F8,   KC_F9,  KC_F10,     KC_F14, \
+         KC_NO, KC_NO,   KC_NO,   KC_NO,SGUI(KC_R),   KC_F2,                         SGUI(KC_K),SGUI(KC_LEFT),LSFT(KC_UP),SGUI(KC_RGHT),  KC_F11,     KC_F15, \
+          KC_NO,KC_TRNS,   KC_NO, KC_LBRC, KC_RBRC,  KC_TAB,                             KC_F18,LSFT(KC_LEFT),LSFT(KC_DOWN),LSFT(KC_RGHT),     KC_F12,  KC_F16, \
         KC_LSPO,KC_ASTG,   KC_NO, KC_LCBR, KC_RCBR,LCTL(KC_U),     KC_NO,            KC_NO,KC_F19,LCTL(LGUI(KC_A)),LALT(LSFT(KC_LEFT)),LALT(LSFT(KC_RIGHT)),   KC_F13,  KC_F17, \
                                        KC_CAPS,LALT(KC_SPC),  KC_LGUI,                    KC_SPC,KC_TRNS,       KC_NO)
 
@@ -39,9 +39,15 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 void encoder_update_user(uint8_t index, bool clockwise) {
     if (IS_LAYER_ON(_LOWER)) {
         if (clockwise) {
-            tap_code(KC_PGDN);
+            tap_code(KC_WH_D);
         } else {
-            tap_code(KC_PGUP);
+            tap_code(KC_WH_U);
+        }
+    } else if (IS_LAYER_ON(_RAISE)) {
+        if (clockwise) {
+            tap_code(KC_EQL);
+        } else {
+            tap_code(KC_MINS);
         }
     } else {
         if (clockwise) {
