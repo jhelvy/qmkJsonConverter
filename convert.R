@@ -21,3 +21,4 @@ keymap_txt <- getKeymap(keymap_json)
 # Save as .txt file
 txtFilePath <- here::here('keymaps', paste0(jsonFileName, '.txt'))
 writeLines(keymap_txt, txtFilePath)
+
