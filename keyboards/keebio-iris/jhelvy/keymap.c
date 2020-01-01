@@ -39,7 +39,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 [_LAYER3] = LAYOUT( \
                    KC_NO, KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,                              KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,      KC_NO, \
          KC_NO, KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,                              KC_NO,LGUI(KC_LBRC), KC_MS_U,LGUI(KC_RBRC),   KC_NO,      KC_NO, \
-          KC_NO,KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,                              KC_NO, KC_MS_L, KC_MS_D, KC_MS_R,      KC_NO,   KC_NO, \
+  SGUI(KC_BSPC),KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,                              KC_NO, KC_MS_L, KC_MS_D, KC_MS_R,      KC_NO,   KC_NO, \
           KC_NO,KC_NO,   KC_NO,   KC_NO,   KC_NO,   KC_NO,     KC_NO,            KC_NO, KC_NO,   KC_NO,      KC_NO,  KC_NO,    KC_NO,   KC_NO, \
                                        KC_TRNS, KC_NO,    KC_NO,                   KC_BTN1,KC_BTN2,       KC_NO)
 
@@ -76,6 +76,3 @@ void encoder_update_user(uint8_t index, bool clockwise) {
         }
     }
 }
-
-
-
