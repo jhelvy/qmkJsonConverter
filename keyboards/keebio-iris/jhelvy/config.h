@@ -25,6 +25,10 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #define TAPPING_TERM 200
 #define AUTO_SHIFT_TIMEOUT 150
 
+#define MOUSEKEY_DELAY 100
+#define MOUSEKEY_INTERVAL 16
+#define MOUSEKEY_MAX_SPEED 2
+
 #define ENCODERS_PAD_A { F4 }
 #define ENCODERS_PAD_B { F5 }
 #define ENCODER_RESOLUTION 4
