@@ -28,6 +28,8 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #define MOUSEKEY_DELAY 100
 #define MOUSEKEY_INTERVAL 16
 #define MOUSEKEY_MAX_SPEED 2
+#define MOUSEKEY_WHEEL_MAX_SPEED 42
+#define MOUSEKEY_WHEEL_TIME_TO_MAX 15
 
 #define ENCODERS_PAD_A { F4 }
 #define ENCODERS_PAD_B { F5 }
