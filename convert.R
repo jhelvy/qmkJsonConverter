@@ -14,11 +14,11 @@ jsonFileName <- 'keebio_iris_rev2_jhelvy'
 
 # Get converted keymap 
 settings <- getSettings(keyboardName)
-jsonFilePath <- here::here('keymaps', paste0(jsonFileName, '.json'))
+jsonFilePath <- here::here('keyboards', keyboardName, 'jhelvy', paste0(jsonFileName, '.json'))
 keymap_json <- fromJSON(file = jsonFilePath)
 keymap_txt <- getKeymap(keymap_json)
 
 # Save as .txt file
-txtFilePath <- here::here('keymaps', paste0(jsonFileName, '.txt'))
+txtFilePath <- here::here('keyboards', keyboardName, 'jhelvy', paste0(jsonFileName, '.txt'))
 writeLines(keymap_txt, txtFilePath)
 
