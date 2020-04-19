@@ -1,24 +1,32 @@
 library(rjson)
 library(stringr)
 library(readr)
-library(here)
-source(here::here('functions.R'))
+source('functions.R')
 
-# Build the lily58:
-keyboardName <- 'lily58'
-jsonFileName <- 'lily58_rev1_jhelvy'
+# User-defined objects --------------------------------------------------------
 
-# Build the iris:
+# keyboard name:
+# keyboardName <- 'lily58'
 keyboardName <- 'keebio-iris'
+
+# json file name:
+# jsonFileName <- 'lily58_rev1_jhelvy'
 jsonFileName <- 'keebio_iris_rev2_jhelvy'
 
+# Folder name
+folderName <- 'jhelvy'
+
+# Run -------------------------------------------------------------------------
+
+# Define the file paths
+jsonFile <- paste0(jsonFileName, '.json')
+keymapFile <- paste0(jsonFileName, '.txt')
+jsonFilePath <- file.path('keyboards', keyboardName, folderName, jsonFile)
+keymapFilePath <- file.path('keyboards', keyboardName, folderName, keymapFile)
+
 # Get converted keymap 
-settings <- getSettings(keyboardName)
-jsonFilePath <- here::here('keyboards', keyboardName, 'jhelvy', paste0(jsonFileName, '.json'))
 keymap_json <- fromJSON(file = jsonFilePath)
-keymap_txt <- getKeymap(keymap_json)
+keymap_txt <- makeKeymap(keymap_json)
 
 # Save as .txt file
-txtFilePath <- here::here('keyboards', keyboardName, 'jhelvy', paste0(jsonFileName, '.txt'))
-writeLines(keymap_txt, txtFilePath)
-
+writeLines(keymap_txt, keymapFilePath)
