@@ -4,4 +4,4 @@
 
 This is a custom keymap with the following layout:
 
-<img src="https://github.com/jhelvy/qmkJsonConverter/raw/master/keyboards/lily58_rev1_jhelvy.png" width="800">
+<img src="https://github.com/jhelvy/qmkJsonConverter/raw/master/keyboards/lily58/jhelvy/lily58_rev1_jhelvy.png" width="800">
