@@ -1,3 +1,12 @@
+getKeymap <- function(input) {
+    inFile <- input$uploadFile
+    if (is.null(inFile)) {
+        return("Please upload a json file")
+    } 
+    keymap_json <- fromJSON(file = inFile$datapath)
+    return(makeKeymap(keymap_json))
+}
+
 makeKeymap <- function(keymap_json) {
     layers <- keymap_json$layers
     header <- getHeader(layers)

@@ -1,6 +1,7 @@
 library(rjson)
 library(stringr)
 library(readr)
+
 source('functions.R')
 
 # User-defined objects --------------------------------------------------------
@@ -24,7 +25,7 @@ keymapFile <- paste0(jsonFileName, '.txt')
 jsonFilePath <- file.path('keyboards', keyboardName, folderName, jsonFile)
 keymapFilePath <- file.path('keyboards', keyboardName, folderName, keymapFile)
 
-# Get converted keymap 
+# Get converted keymap
 keymap_json <- fromJSON(file = jsonFilePath)
 keymap_txt <- makeKeymap(keymap_json)
 

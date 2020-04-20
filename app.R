@@ -1,11 +1,13 @@
 library(shiny)
-library(shinycssloaders)
+library(rclipboard)
 library(rjson)
 library(stringr)
-library(readr)
+
 source('functions.R')
 
 ui <- fluidPage(
+    
+    rclipboardSetup(),
     
     titlePanel("QMK json converter"),
     
@@ -14,19 +16,14 @@ ui <- fluidPage(
             fileInput("uploadFile", "Upload json file:",
                       multiple = FALSE,
                       accept = c("text/json", ".json")),
-            actionButton(
-                inputId = "convert",
-                label    = "Convert!"),
-            downloadButton(
-                outputId = "download",
-                label    = "Download"),
-            br(),
-            # Insert footer
+            uiOutput("clip"),
+            br(),br(),
             tags$div(HTML(paste(readLines("footer.html"), collapse = " ")))
         ),
         
         mainPanel(
-            div(style="width:600px; padding-left:50px; pre { white-space: pre-wrap; word-break: keep-all; }",
+            div(style="width:600px; padding-left:50px;",
+                h3("Keymap:"),
                 fluidRow(verbatimTextOutput("keymap", placeholder = TRUE))
             )
         )
@@ -34,17 +31,14 @@ ui <- fluidPage(
 )
 
 server <- function(input, output, session) {
+    
     output$keymap <- renderText({
-
-        inFile <- input$uploadFile
-
-        if (is.null(inFile)) {
-            return("Please upload a json file")
-        } else {
-            keymap_json <- fromJSON(file = inFile$datapath)
-            keymap <- makeKeymap(keymap_json)
-            return(keymap)
-        }
+        getKeymap(input)
+    })
+    
+    # Add clipboard buttons
+    output$clip <- renderUI({
+        rclipButton("clipbtn", "Copy to clipboard", getKeymap(input), icon("clipboard"))
     })
     
 }
