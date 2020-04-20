@@ -43,5 +43,5 @@ The underlying R code that makes this app work can also be directly used in R. T
 6. Open the `convert.R` script and define the `keyboardName`, `jsonFileName`, and `folderName`
 7. Run the whole `convert.R` script
 8. Open the resulting .txt file that has now been saved in the same folder where you put the original .json file you downloaded from the QMK configurator
-9. Open the appropriate `keymap.c` file for the desired keyboard and copy-paste over the formated keymap code stored in the .txt file
+9. Open the appropriate `keymap.c` file for the desired keyboard and copy-paste over the formatted keymap code stored in the .txt file
 10. Add any other additional features you desire to the keymap.c file
