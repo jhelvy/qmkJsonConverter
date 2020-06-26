@@ -1,0 +1,12 @@
+name: qmkjsonconverter
+title: qmkJsonConverter
+username: jph
+account: jph
+server: rstudio.seas.gwu.edu
+hostUrl: https://rstudio.seas.gwu.edu:3939/__api__
+appId: 3
+bundleId: 3
+url: https://rstudio.seas.gwu.edu:3939/content/3/
+when: 1593199856.44721
+asMultiple: FALSE
+asStatic: FALSE
